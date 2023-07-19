@@ -8,6 +8,7 @@ class Airport(models.Model):
     def __str__(self):
         return f"{self.name}, {self.closest_bit_city}"
 
+
 class Route(models.Model):
     source = models.ForeignKey(
         Airport,
@@ -20,3 +21,6 @@ class Route(models.Model):
         related_name="destination"
     )
     distance = models.IntegerField()
+
+    def __str__(self):
+        return f"From {self.source} to {self.destination}"
