@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-from airport.models import Route
 from flight.models import AirplaneType, Airplane, Crew, Flight
 
 
@@ -30,25 +29,6 @@ class CrewSerializer(serializers.ModelSerializer):
 
 
 class FlightSerializer(serializers.ModelSerializer):
-    crew = serializers.SlugRelatedField(
-        many=True,
-        read_only=False,
-        slug_field="full_name",
-        queryset=Crew.objects.all()
-        )
-    route = serializers.SlugRelatedField(
-        many=False,
-        read_only=False,
-        slug_field="route_str",
-        queryset=Route.objects.all()
-        )
-    airplane = serializers.SlugRelatedField(
-        many=False,
-        read_only=False,
-        slug_field="airplane_name",
-        queryset=Airplane.objects.all()
-        )
-
     class Meta:
         model = Flight
         fields = (

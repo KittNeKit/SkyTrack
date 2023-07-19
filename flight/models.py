@@ -19,10 +19,6 @@ class Airplane(models.Model):
     def __str__(self):
         return self.name
 
-    @property
-    def airplane_name(self):
-        return f"{self.airplane_type.name} {self.name}"
-
 
 class Crew(models.Model):
     first_name = models.CharField(max_length=255)
@@ -30,10 +26,6 @@ class Crew(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
-
-    @property
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
 
 
 class Flight(models.Model):
@@ -44,4 +36,4 @@ class Flight(models.Model):
     arrival_time = models.DateTimeField()
 
     def __str__(self):
-        return self.route
+        return self.route.__str__()
