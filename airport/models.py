@@ -6,7 +6,7 @@ class Airport(models.Model):
     closest_bit_city = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.name}, {self.closest_bit_city}"
+        return f"{self.name} {self.closest_bit_city}"
 
 
 class Route(models.Model):
@@ -23,8 +23,4 @@ class Route(models.Model):
     distance = models.IntegerField()
 
     def __str__(self):
-        return f"From {self.source} to {self.destination}"
-
-    @property
-    def route_str(self):
         return f"From {self.source} to {self.destination}"
