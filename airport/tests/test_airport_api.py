@@ -91,9 +91,9 @@ class AdminAirportApiTests(TestCase):
         res = self.client.post(AIRPORT_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
-        movie = Airport.objects.get(id=res.data["id"])
+        airport = Airport.objects.get(id=res.data["id"])
         for key in payload.keys():
-            self.assertEqual(payload[key], getattr(movie, key))
+            self.assertEqual(payload[key], getattr(airport, key))
 
     def test_put_airport_not_allowed(self):
         payload = {
