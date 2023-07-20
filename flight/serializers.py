@@ -32,6 +32,7 @@ class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
         fields = (
+            "id",
             "crew",
             "route",
             "airplane",
