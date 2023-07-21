@@ -16,7 +16,7 @@ def sample_route(**params):
     defaults = {
         "source": sample_airport(),
         "destination": sample_airport(),
-        "distance": 300
+        "distance": 300,
     }
     defaults.update(params)
 
@@ -71,7 +71,7 @@ class AuthenticatedRouteApiTests(TestCase):
         payload = {
             "source": sample_airport(),
             "destination": sample_airport(),
-            "distance": 403
+            "distance": 403,
         }
         res = self.client.post(ROUTE_URL, payload)
 
@@ -90,7 +90,7 @@ class AdminRouteApiTests(TestCase):
         payload = {
             "source": sample_airport().id,
             "destination": sample_airport().id,
-            "distance": 405
+            "distance": 405,
         }
 
         route = sample_route()

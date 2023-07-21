@@ -5,7 +5,12 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from airport.permissions import IsAdminOrIfUserReadOnly
 from flight.models import AirplaneType, Airplane, Crew, Flight
-from flight.serializers import AirplaneTypeSerializer, AirplaneSerializer, CrewSerializer, FlightSerializer
+from flight.serializers import (
+    AirplaneTypeSerializer,
+    AirplaneSerializer,
+    CrewSerializer,
+    FlightSerializer,
+)
 
 
 @extend_schema_view(
@@ -13,9 +18,7 @@ from flight.serializers import AirplaneTypeSerializer, AirplaneSerializer, CrewS
     create=extend_schema(description="Creating airplane type endpoint"),
 )
 class AirplaneTypeViewSet(
-    mixins.CreateModelMixin,
-    mixins.ListModelMixin,
-    GenericViewSet
+    mixins.CreateModelMixin, mixins.ListModelMixin, GenericViewSet
 ):
     queryset = AirplaneType.objects.all()
     serializer_class = AirplaneTypeSerializer
@@ -32,9 +35,9 @@ class AirplaneViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
-    queryset = Airplane.objects.all().select_related("airplane_type")
+    queryset = Airplane.objects.select_related("airplane_type")
     serializer_class = AirplaneSerializer
     permission_classes = (IsAdminOrIfUserReadOnly,)
     authentication_classes = (JWTAuthentication,)
@@ -44,11 +47,7 @@ class AirplaneViewSet(
     list=extend_schema(description="All crew endpoint in the db"),
     create=extend_schema(description="Creating crew endpoint"),
 )
-class CrewViewSet(
-    mixins.CreateModelMixin,
-    mixins.ListModelMixin,
-    GenericViewSet
-):
+class CrewViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, GenericViewSet):
     queryset = Crew.objects.all()
     serializer_class = CrewSerializer
     permission_classes = (IsAdminOrIfUserReadOnly,)
@@ -64,9 +63,9 @@ class FlightViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
-    queryset = Flight.objects.all().prefetch_related("crew").select_related("route")
+    queryset = Flight.objects.prefetch_related("crew").select_related("route")
     serializer_class = FlightSerializer
     permission_classes = (IsAdminOrIfUserReadOnly,)
     authentication_classes = (JWTAuthentication,)

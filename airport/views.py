@@ -17,12 +17,13 @@ class AirportViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
     permission_classes = (IsAdminOrIfUserReadOnly,)
     authentication_classes = (JWTAuthentication,)
+
 
 @extend_schema_view(
     list=extend_schema(description="All route endpoint in the db"),
@@ -33,9 +34,9 @@ class RouteViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
-    queryset = Route.objects.all().select_related("source", "destination")
+    queryset = Route.objects.select_related("source", "destination")
     serializer_class = RouteSerializer
     permission_classes = (IsAdminOrIfUserReadOnly,)
     authentication_classes = (JWTAuthentication,)
