@@ -8,7 +8,7 @@ from flight.models import Airplane
 from flight.serializers import AirplaneSerializer
 from flight.tests.test_airplanetype_api import sample_airplane_type
 
-AIRPLANE_URL = reverse("flight:airplane-list")
+AIRPLANE_URL = reverse("departures:airplane-list")
 
 
 def sample_airplane(**params):
@@ -24,7 +24,7 @@ def sample_airplane(**params):
 
 
 def detail_url(airplane_id):
-    return reverse("flight:airplane-detail", args=[airplane_id])
+    return reverse("departures:airplane-detail", args=[airplane_id])
 
 
 class UnauthenticatedAirplaneApiTests(TestCase):

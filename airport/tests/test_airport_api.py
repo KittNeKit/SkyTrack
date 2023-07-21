@@ -8,7 +8,7 @@ from rest_framework import status
 from airport.models import Airport
 from airport.serializers import AirportSerializer
 
-AIRPORT_URL = reverse("airport:airport-list")
+AIRPORT_URL = reverse("route:airport-list")
 
 
 def sample_airport(**params):
@@ -22,7 +22,7 @@ def sample_airport(**params):
 
 
 def detail_url(airport_id):
-    return reverse("airport:airport-detail", args=[airport_id])
+    return reverse("route:airport-detail", args=[airport_id])
 
 
 class UnauthenticatedAirportApiTests(TestCase):

@@ -7,7 +7,7 @@ from rest_framework.test import APIClient
 from flight.models import Crew
 from flight.serializers import CrewSerializer
 
-CREW_URL = reverse("flight:crew-list")
+CREW_URL = reverse("departures:crew-list")
 
 
 def sample_crew(**params):

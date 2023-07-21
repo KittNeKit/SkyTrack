@@ -10,7 +10,7 @@ from flight.tests.test_airplane_api import sample_airplane
 from flight.tests.test_crew_api import sample_crew
 from airport.tests.test_route_api import sample_route
 
-FLIGHT_URL = reverse("flight:flight-list")
+FLIGHT_URL = reverse("departures:flight-list")
 
 
 def sample_flight(**params):
@@ -26,7 +26,7 @@ def sample_flight(**params):
 
 
 def detail_url(flight_id):
-    return reverse("flight:flight-detail", args=[flight_id])
+    return reverse("departures:flight-detail", args=[flight_id])
 
 
 class UnauthenticatedFlightApiTests(TestCase):
