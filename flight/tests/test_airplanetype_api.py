@@ -8,7 +8,7 @@ from airport.models import Airport
 from flight.models import AirplaneType
 from flight.serializers import AirplaneTypeSerializer
 
-AIRPLANE_TYPE_URL = reverse("flight:airplanetype-list")
+AIRPLANE_TYPE_URL = reverse("departures:airplanetype-list")
 
 
 def sample_airplane_type(**params):

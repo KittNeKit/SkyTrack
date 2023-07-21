@@ -9,7 +9,7 @@ from airport.models import Route
 from airport.serializers import RouteSerializer
 from airport.tests.test_airport_api import sample_airport
 
-ROUTE_URL = reverse("airport:route-list")
+ROUTE_URL = reverse("route:route-list")
 
 
 def sample_route(**params):
@@ -24,7 +24,7 @@ def sample_route(**params):
 
 
 def detail_url(route_id):
-    return reverse("airport:route-detail", args=[route_id])
+    return reverse("route:route-detail", args=[route_id])
 
 
 class UnauthenticatedRouteApiTests(TestCase):

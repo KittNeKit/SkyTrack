@@ -8,7 +8,7 @@ from flight.views import (
 )
 
 router = routers.DefaultRouter()
-router.register("airplanetype", AirplaneTypeViewSet)
+router.register("airplane_type", AirplaneTypeViewSet)
 router.register("airplane", AirplaneViewSet)
 router.register("crew", CrewViewSet)
 router.register("flight", FlightViewSet)
@@ -16,4 +16,4 @@ router.register("flight", FlightViewSet)
 
 urlpatterns = router.urls
 
-app_name = "flight"
+app_name = "departures"

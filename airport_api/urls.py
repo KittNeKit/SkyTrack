@@ -20,8 +20,8 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/airport/", include("airport.urls", namespace="airport")),
-    path("api/flight/", include("flight.urls", namespace="flight")),
+    path("api/route/", include("airport.urls", namespace="route")),
+    path("api/departures/", include("flight.urls", namespace="departures")),
     path("api/order/", include("order.urls", namespace="order")),
     path("api/user/", include("user.urls", namespace="user")),
     path("api/doc/", SpectacularAPIView.as_view(), name="schema"),

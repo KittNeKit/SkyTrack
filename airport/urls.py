@@ -4,9 +4,9 @@ from airport.views import AirportViewSet, RouteViewSet
 
 router = routers.DefaultRouter()
 router.register("airport", AirportViewSet)
-router.register("route", RouteViewSet)
+router.register("", RouteViewSet)
 
 
 urlpatterns = router.urls
 
-app_name = "airport"
+app_name = "route"
