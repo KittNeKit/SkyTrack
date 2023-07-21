@@ -15,13 +15,13 @@ class RouteSerializer(serializers.ModelSerializer):
         read_only=False,
         slug_field="name",
         queryset=Airport.objects.all()
-        )
+    )
     destination = serializers.SlugRelatedField(
         many=False,
         read_only=False,
         slug_field="name",
         queryset=Airport.objects.all()
-        )
+    )
 
     class Meta:
         model = Route

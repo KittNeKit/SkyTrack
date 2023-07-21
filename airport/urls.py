@@ -7,6 +7,6 @@ router.register("airport", AirportViewSet)
 router.register("route", RouteViewSet)
 
 
-urlpatterns = [] + router.urls
+urlpatterns = router.urls
 
 app_name = "airport"

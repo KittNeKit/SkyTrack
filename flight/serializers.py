@@ -14,8 +14,8 @@ class AirplaneSerializer(serializers.ModelSerializer):
         many=False,
         read_only=False,
         slug_field="name",
-        queryset=AirplaneType.objects.all()
-        )
+        queryset=AirplaneType.objects.all(),
+    )
 
     class Meta:
         model = Airplane

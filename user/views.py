@@ -14,13 +14,9 @@ class CreateUserView(generics.CreateAPIView):
 
 
 @extend_schema_view(
-    get=extend_schema(
-        description="Detail info about current user endpoint."
-    ),
+    get=extend_schema(description="Detail info about current user endpoint."),
     put=extend_schema(description="Updating the current user endpoint."),
-    patch=extend_schema(
-        description="Partially update the current user endpoint."
-    ),
+    patch=extend_schema(description="Partially update the current user endpoint."),
 )
 class ManageUserView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
