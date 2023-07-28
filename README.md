@@ -1,4 +1,4 @@
-# AIRPORT API
+# SkyTrack
 API service for airport management written on DRF
 
 ## Features
